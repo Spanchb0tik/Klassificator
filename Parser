@@ -1,0 +1,15 @@
+import requests
+from bs4 import BeautifulSoup
+#Получаем нашу страницу
+response = requests.get(url)
+html = response.text
+soup = BeautifulSoup(html, 'html.parser')
+# Убираем css
+for tag in soup.find_all('style'):
+  tag.decompose()
+
+# Убираме javascript
+for tag in soup.find_all('script'):
+  tag.decompose()
+my_file = open("URL.text", "a+")#сохраняем данные в файл (.txt)
+my_file.write((''.join(soup.get_text())))
