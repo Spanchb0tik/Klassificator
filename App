@@ -17,3 +17,4 @@ form.setupUi(windows)
 form.button.clicked.connect(solve)
 windows.show()
 win.exec()
+#
