@@ -1,20 +1,41 @@
+import sys
+
 from PyQt6.QtWidgets import QApplication
+from PyQt6 import QtWidgets
 from PyQt6 import uic
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 import csv
-def solve():
-    url=form.inp.text()
-    # Парсер всего текста
-    form.outp.setText(url)# скобки запихнуть ответ
-    
-Form, Windows = uic.loadUiType("C:\\Users\davyd\OneDrive\Документы\Project X\project.ui")
-win = QApplication([])
-windows = Windows()
-windows.setWindowTitle("Классификация сайтов")
-form = Form()
-form.setupUi(windows)
-form.button.clicked.connect(solve)
+header = ["URL"]
+data=[]
+def dataset():
+    classs="1"
+    data.append([classs])
+    df = pd.DataFrame(data, columns=header)
+    form2.textEdit2.setText(df)
+
+class StartMenuMain():
+    def loadDATASET(self):
+        df=pd.rear_csv("C:\\Users\davyd\PycharmProjects\pythonProject1\data.csv")
+        df.fillin("",inplace=True)
+        form2.tabWidget.setRowOunt(df.shape[0])
+        form2.tableWidget.setColumnCount(df.shape[1])
+        form2.tableWidget.setHorizontalHeaderLabels(df.columns)
+
+        for row in df.itterrows():
+            values=row[1]
+            for col_index, value in enumerate(values):
+                if isinstance(value,(float,int)):
+                    value="{0:0,.of}".format(value)
+                tableItem=QtWidgets.QTableWidgetItem(str(value))
+                form2.tableWidget.setItem(row[0],col_index.tableItem)
+        form2.tableWidget.setColumnWidth(2,300)
+Form2,Windows2=uic.loadUiType("C:\\Users\davyd\PycharmProjects\pythonProject1\project.database.ui")
+form2=Form2()
+app=QApplication(sys.argv)
+startmenu_window=StartMenuMain()
+windows=Windows2
+windows.addWidget(startmenu_window)
 windows.show()
-win.exec()
-#
+sys.exit(app.exec_())
