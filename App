@@ -39,3 +39,4 @@ windows=Windows2
 windows.addWidget(startmenu_window)
 windows.show()
 sys.exit(app.exec_())
+#https://evileg.com/ru/post/236/ здесь посмотреть надо будет как делать 
