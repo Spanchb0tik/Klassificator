@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dobropozalovat</class>
+ <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
@@ -31,14 +31,17 @@
      <rect>
       <x>120</x>
       <y>180</y>
-      <width>121</width>
-      <height>20</height>
+      <width>131</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>MS Outlook</family>
-      <pointsize>12</pointsize>
+      <family>MS Sans Serif</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -92,6 +95,31 @@ border: 0.5px solid black;
 placeholder: &quot;Класс сайта&quot;;</string>
     </property>
    </widget>
+   <widget class="QToolButton" name="button_2">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>10</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Sans Serif</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: rgb(85, 170, 255)</string>
+    </property>
+    <property name="text">
+     <string>библиотека сайтов</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -99,7 +127,7 @@ placeholder: &quot;Класс сайта&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>374</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
