@@ -1,42 +1,34 @@
-import sys
-
 from PyQt6.QtWidgets import QApplication
-from PyQt6 import QtWidgets
 from PyQt6 import uic
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import csv
-header = ["URL"]
-data=[]
-def dataset():
-    classs="1"
-    data.append([classs])
+data = pd.read_csv("C:\\Users\davyd\PycharmProjects\pythonProject1\data.csv")
+header = ["URL","CLASS"]
+f = open("C:\\Users\davyd\PycharmProjects\pythonProject1\data.csv", 'r', encoding="UTF-8")
+def solve1():
+    url=form1.inp.text()
+    data.append([url,"loh"])
     df = pd.DataFrame(data, columns=header)
-    form2.textEdit2.setText(df)
-
-class StartMenuMain():
-    def loadDATASET(self):
-        df=pd.rear_csv("C:\\Users\davyd\PycharmProjects\pythonProject1\data.csv")
-        df.fillin("",inplace=True)
-        form2.tabWidget.setRowOunt(df.shape[0])
-        form2.tableWidget.setColumnCount(df.shape[1])
-        form2.tableWidget.setHorizontalHeaderLabels(df.columns)
-
-        for row in df.itterrows():
-            values=row[1]
-            for col_index, value in enumerate(values):
-                if isinstance(value,(float,int)):
-                    value="{0:0,.of}".format(value)
-                tableItem=QtWidgets.QTableWidgetItem(str(value))
-                form2.tableWidget.setItem(row[0],col_index.tableItem)
-        form2.tableWidget.setColumnWidth(2,300)
+    df.to_csv('data.csv', index=False)
+    form1.outp.setText(url)  # скобки запихнуть ответ
+def database():
+    f = open("C:\\Users\davyd\PycharmProjects\pythonProject1\data.csv", 'r', encoding="UTF-8")
+    windows2.show()
+    form2.textBrowser.setText(f.read())
+Form1, Windows1 = uic.loadUiType("C:\\Users\davyd\PycharmProjects\pythonProject1\project.ui")
 Form2,Windows2=uic.loadUiType("C:\\Users\davyd\PycharmProjects\pythonProject1\project.database.ui")
-form2=Form2()
-app=QApplication(sys.argv)
-startmenu_window=StartMenuMain()
-windows=Windows2
-windows.addWidget(startmenu_window)
-windows.show()
-sys.exit(app.exec_())
-#https://evileg.com/ru/post/236/ здесь посмотреть надо будет как делать 
+win = QApplication([])
+windows1 = Windows1()
+windows2= Windows2()
+windows1.setWindowTitle("Классификация сайтов")
+windows2.setWindowTitle("DATABASE")
+form1 = Form1()
+form2= Form2()
+form1.setupUi(windows1)
+form2.setupUi(windows2)
+form1.button.clicked.connect(solve1)
+form1.button_2.clicked.connect(database)
+windows1.show()
+win.exec()
